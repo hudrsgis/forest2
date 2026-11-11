@@ -1,0 +1,29 @@
+---
+title: "Forest"
+format:
+  html:
+    embed-resources: true
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(plotly)
+
+forest <- data.frame(
+  PlotID = paste0("P", 1:10),
+  CanopyCover = c(35,42,51,58,60,67,72,80,85,91),
+  SpeciesRichness = c(12,15,18,22,25,30,34,37,40,44)
+)
+
+plot_ly(
+  forest,
+  x = ~CanopyCover,
+  y = ~SpeciesRichness,
+  text = ~PlotID,
+  type = "scatter",
+  mode = "markers"
+)
+```
